@@ -184,13 +184,13 @@ contract TestRaffle is Test {
         console.log(address(raffle));
         VRFCoordinatorV2Mock(vrfCoordinator).fulfillRandomWords(uint256(requestId), address(raffle));
         assert(uint256(raffle.getRaffleState()) == 0);
-        //assert(raffle.getNumberOfPlayers() == 0);
-        //assert(address(raffle).balance == 0);
-        //assert(raffle.getLastTimeStamp() == block.timestamp);
-        //assert(previousTimeStamp < raffle.getLastTimeStamp());
-        //assert(raffle.getRecentWinner() != address(0));
+        assert(raffle.getNumberOfPlayers() == 0);
+        assert(address(raffle).balance == 0);
+        assert(raffle.getLastTimeStamp() == block.timestamp);
+        assert(previousTimeStamp < raffle.getLastTimeStamp());
+        assert(raffle.getRecentWinner() != address(0));
         //bytes32 winner = entries[2].topics[1];
         //assert(address(uint160(winner)) == raffle.getRecentWinner());
-        //assert((raffle.getRecentWinner()).balance == STARTING_BALANCE + prise - entrancefee);
+        assert((raffle.getRecentWinner()).balance == STARTING_BALANCE + prise - entrancefee);
     }
 }
